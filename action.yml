@@ -9,4 +9,4 @@ runs:
   steps:
     - name: Test the CMake project
       shell: ${{ runner.os == 'Windows' && 'pwsh' || 'bash' }}
-      run: ctest --output-on-failure --no-tests=error
+      run: ctest --test-dir build --output-on-failure --no-tests=error
