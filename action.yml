@@ -1,0 +1,12 @@
+name: CTest Action
+description: Test a CMake project using CTest
+author: Alfi Maulana
+branding:
+  color: gray-dark
+  icon: terminal
+runs:
+  using: composite
+  steps:
+    - name: Test the CMake project
+      shell: ${{ runner.os == 'Windows' && 'pwsh' || 'bash' }}
+      run: ctest --output-on-failure --no-tests=error
