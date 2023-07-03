@@ -11,7 +11,17 @@ Test your [CMake](https://cmake.org/) project with [CTest](https://cmake.org/cma
 
 ## Usage
 
-For more information, refer to the [GitHub Actions guide](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions).
+For more information, refer to [action.yml](./action.yml) and the [GitHub Actions guide](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions).
+
+### Inputs
+
+| Name | Value Type | Description |
+| --- | --- | --- |
+| `args` | Multiple strings | Additional arguments to pass during the CTest run. |
+
+> **Note**: Multiple strings mean that the input can be specified with more than one value. Separate each value with a space or a new line.
+
+> **Note**: All inputs are optional.
 
 ### Examples
 
