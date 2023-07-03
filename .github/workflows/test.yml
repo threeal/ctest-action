@@ -25,3 +25,5 @@ jobs:
 
       - name: Use the action
         uses: ./
+        with:
+          args: ${{ matrix.os == 'windows' && '-C Debug' || '' }}
