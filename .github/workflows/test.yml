@@ -20,7 +20,7 @@ jobs:
         run: mv test/* .
 
       - name: Configure and build the project
-        uses: threeal/cmake-action@v1.2.0
+        uses: threeal/cmake-action@v1.3.0
         with:
           run-build: true
 
