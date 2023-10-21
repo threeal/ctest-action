@@ -1,0 +1,16 @@
+name: CTest Action
+description: Test your CMake project with CTest
+author: Alfi Maulana
+branding:
+  color: gray-dark
+  icon: terminal
+inputs:
+  args:
+    description: Additional arguments to pass during the CTest run
+    required: false
+runs:
+  using: composite
+  steps:
+    - name: Test the CMake project
+      shell: ${{ runner.os == 'Windows' && 'pwsh' || 'bash' }}
+      run: ctest --test-dir build --output-on-failure --no-tests=error ${{ inputs.args }}
