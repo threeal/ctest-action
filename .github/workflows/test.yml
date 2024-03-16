@@ -14,7 +14,7 @@ jobs:
         os: [windows, ubuntu, macos]
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.1.2
 
       - name: Move the test project to the working directory
         run: mv test/* .

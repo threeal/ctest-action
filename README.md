@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v3.5.3
+        uses: actions/checkout@v4.1.2
 
       - name: Configure and build the project
         uses: threeal/cmake-action@v1.2.0
