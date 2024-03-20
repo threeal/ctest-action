@@ -1,29 +1,36 @@
-name: test
+name: Test
 on:
   workflow_dispatch:
   pull_request:
   push:
     branches: [main]
 jobs:
-  default-usage:
+  test-action:
+    name: Test Action
     runs-on: ${{ matrix.os }}-latest
     strategy:
       fail-fast: false
       matrix:
         os: [windows, ubuntu, macos]
     steps:
-      - name: Checkout the repository
+      - name: Checkout
         uses: actions/checkout@v4.1.2
+        with:
+          path: ctest-action
+          sparse-checkout: |
+            test
+            action.yaml
+          sparse-checkout-cone-mode: false
 
-      - name: Move the test project to the working directory
-        run: mv test/* .
+      - name: Prepare Sample Project
+        run: mv ctest-action/test/* .
 
-      - name: Configure and build the project
+      - name: Configure and Build Project
         uses: threeal/cmake-action@v1.3.0
         with:
           run-build: true
 
-      - name: Use the action
-        uses: ./
+      - name: Test Project
+        uses: ./ctest-action
         with:
           args: ${{ matrix.os == 'windows' && '-C Debug' || '' }}
