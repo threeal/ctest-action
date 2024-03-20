@@ -29,11 +29,10 @@ jobs:
         uses: threeal/cmake-action@v1.3.0
         with:
           run-build: true
+          generator: Ninja
 
       - name: Test Project
         uses: ./ctest-action
-        with:
-          build-config: ${{ matrix.os == 'windows' && 'Debug' || '' }}
 
   test-action-with-build-config:
     name: Test Action With Build Config
