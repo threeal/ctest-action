@@ -5,6 +5,8 @@ branding:
   icon: terminal
   color: gray-dark
 inputs:
+  build-config:
+    description: Choose the configuration to test
   args:
     description: Additional arguments to pass during the CTest run
 runs:
@@ -12,4 +14,4 @@ runs:
   steps:
     - name: Test the CMake project
       shell: ${{ runner.os == 'Windows' && 'pwsh' || 'bash' }}
-      run: ctest --test-dir build --output-on-failure --no-tests=error ${{ inputs.args }}
+      run: ctest --test-dir build --output-on-failure --no-tests=error ${{ inputs.build-config && '-C' }} ${{ inputs.build-config }} ${{ inputs.args }}

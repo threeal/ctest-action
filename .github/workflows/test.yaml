@@ -29,8 +29,33 @@ jobs:
         uses: threeal/cmake-action@v1.3.0
         with:
           run-build: true
+          generator: Ninja
+
+      - name: Test Project
+        uses: ./ctest-action
+
+  test-action-with-build-config:
+    name: Test Action With Build Config
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.2
+        with:
+          path: ctest-action
+          sparse-checkout: |
+            test
+            action.yaml
+          sparse-checkout-cone-mode: false
+
+      - name: Prepare Sample Project
+        run: mv ctest-action/test/* .
+
+      - name: Configure and Build Project
+        uses: threeal/cmake-action@v1.3.0
+        with:
+          run-build: true
 
       - name: Test Project
         uses: ./ctest-action
         with:
-          args: ${{ matrix.os == 'windows' && '-C Debug' || '' }}
+          build-config: Debug
