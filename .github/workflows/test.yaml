@@ -15,9 +15,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.2
+        with:
+          path: ctest-action
 
       - name: Prepare Sample Project
-        run: mv test/* .
+        run: mv ctest-action/test/* .
 
       - name: Configure and Build Project
         uses: threeal/cmake-action@v1.3.0
@@ -25,6 +27,6 @@ jobs:
           run-build: true
 
       - name: Test Project
-        uses: ./
+        uses: ./ctest-action
         with:
           args: ${{ matrix.os == 'windows' && '-C Debug' || '' }}
