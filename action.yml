@@ -1,9 +1,9 @@
 name: CTest Action
-description: Test your CMake project with CTest
 author: Alfi Maulana
+description: Test your CMake project with CTest
 branding:
-  color: gray-dark
   icon: terminal
+  color: gray-dark
 inputs:
   args:
     description: Additional arguments to pass during the CTest run
