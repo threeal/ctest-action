@@ -33,4 +33,4 @@ jobs:
       - name: Test Project
         uses: ./ctest-action
         with:
-          args: ${{ matrix.os == 'windows' && '-C Debug' || '' }}
+          build-config: ${{ matrix.os == 'windows' && 'Debug' || '' }}

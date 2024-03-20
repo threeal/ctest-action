@@ -14,6 +14,7 @@ For more information, refer to [action.yml](./action.yml) and the [GitHub Action
 
 | Name | Value Type | Description |
 | --- | --- | --- |
+| `build-config` | string | Choose the configuration to test. |
 | `args` | Multiple strings | Additional arguments to pass during the CTest run. |
 
 > **Note**: Multiple strings mean that the input can be specified with more than one value. Separate each value with a space or a new line.
