@@ -17,6 +17,10 @@ jobs:
         uses: actions/checkout@v4.1.2
         with:
           path: ctest-action
+          sparse-checkout: |
+            test
+            action.yaml
+          sparse-checkout-cone-mode: false
 
       - name: Prepare Sample Project
         run: mv ctest-action/test/* .
