@@ -24,7 +24,7 @@ jobs:
           path: ctest-action
           sparse-checkout: |
             test
-            action.yaml
+            action.yml
           sparse-checkout-cone-mode: false
 
       - name: Configure and Build Project
@@ -52,7 +52,7 @@ jobs:
           path: ctest-action
           sparse-checkout: |
             test
-            action.yaml
+            action.yml
           sparse-checkout-cone-mode: false
 
       - name: Configure and Build Project
@@ -82,7 +82,7 @@ jobs:
           path: ctest-action
           sparse-checkout: |
             test
-            action.yaml
+            action.yml
           sparse-checkout-cone-mode: false
 
       - name: Configure and Build Project
@@ -114,7 +114,7 @@ jobs:
           path: ctest-action
           sparse-checkout: |
             test
-            action.yaml
+            action.yml
           sparse-checkout-cone-mode: false
 
       - name: Configure and Build Project
