@@ -1,6 +1,6 @@
 name: CTest Action
 author: Alfi Maulana
-description: Test your CMake project with CTest
+description: Test CMake projects using CTest
 branding:
   icon: terminal
   color: gray-dark
@@ -9,9 +9,9 @@ inputs:
     description: Specifies the directory in which to look for tests
     default: build
   build-config:
-    description: Choose the configuration to test
+    description: Chooses the configuration to test
   tests-regex:
-    description: Run tests matching regular expression
+    description: Runs tests matching the regular expression
   args:
     description: Additional arguments to pass during the CTest run
 runs:
