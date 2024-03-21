@@ -6,11 +6,7 @@ Test your [CMake](https://cmake.org/) project with [CTest](https://cmake.org/cma
 
 - Tests a CMake project with the [`ctest`](https://cmake.org/cmake/help/latest/manual/ctest.1.html) command.
 
-## Usage
-
-For more information, refer to [action.yml](./action.yml) and the [GitHub Actions guide](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions).
-
-### Inputs
+## Available Inputs
 
 | Name | Value Type | Description |
 | --- | --- | --- |
@@ -23,7 +19,7 @@ For more information, refer to [action.yml](./action.yml) and the [GitHub Action
 
 > **Note**: All inputs are optional.
 
-### Examples
+## Example Usages
 
 ```yaml
 name: Test
