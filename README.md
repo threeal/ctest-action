@@ -1,10 +1,11 @@
 # CTest Action
 
-Test your [CMake](https://cmake.org/) project with [CTest](https://cmake.org/cmake/help/book/mastering-cmake/chapter/Testing%20With%20CMake%20and%20CTest.html) using [GitHub Actions](https://github.com/features/actions). This action simplifies the workflow for testing a CMake project.
+Test [CMake](https://cmake.org/) projects using [CTest](https://cmake.org/cmake/help/book/mastering-cmake/chapter/Testing%20With%20CMake%20and%20CTest.html) on [GitHub Actions](https://github.com/features/actions).
 
-## Features
+This action wraps the [`ctest`](https://cmake.org/cmake/help/latest/manual/ctest.1.html) command for testing CMake projects.
+It provides a better syntax for specifying test options compared to calling the `ctest` command directly.
 
-- Tests a CMake project with the [`ctest`](https://cmake.org/cmake/help/latest/manual/ctest.1.html) command.
+By default, this action invokes `ctest` with the `--output-on-failure` and `--no-tests=error` options set. These options are configured to display the output only in case of failure and to prevent this action from testing a project that lacks any tests.
 
 ## Available Inputs
 

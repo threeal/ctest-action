@@ -1,6 +1,6 @@
 name: CTest Action
 author: Alfi Maulana
-description: Test your CMake project with CTest
+description: Test CMake projects using CTest
 branding:
   icon: terminal
   color: gray-dark
