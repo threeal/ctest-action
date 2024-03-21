@@ -18,24 +18,60 @@ By default, this action invokes `ctest` with the `--output-on-failure` and `--no
 
 ## Example Usages
 
+This example demonstrates how to use this action to test a CMake project in a GitHub Actions workflow:
+
 ```yaml
 name: Test
 on:
   push:
 jobs:
   test-project:
+    name: Test Project
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the repository
+      - name: Checkout
         uses: actions/checkout@v4.1.2
 
-      - name: Configure and build the project
-        uses: threeal/cmake-action@v1.2.0
+      - name: Configure and Build Project
+        uses: threeal/cmake-action@v1.3.0
         with:
           run-build: true
 
-      - name: Test the project
-        uses: threeal/ctest-action@main
+      - name: Test Project
+        uses: threeal/ctest-action@v1.0.0
+```
+
+### Testing in a Different Directory
+
+By default, this action runs tests in the `build` directory. To run tests in a different directory, set the `test-dir` input:
+
+```yaml
+- name: Test Project
+  uses: threeal/ctest-action@v1.0.0
+  with:
+    test-dir: sample/build
+```
+
+### Testing a Specific Build Configuration
+
+Some projects may require a build configuration to be specified to run tests. To specify the build configuration, set the `build-config` input:
+
+```yaml
+- name: Test Project
+  uses: threeal/ctest-action@v1.0.0
+  with:
+    build-config: Debug
+```
+
+### Testing Specific Tests
+
+A regular expression pattern can be provided by specifying the `tests-regex` input to run only specific tests that match the given pattern:
+
+```yaml
+- name: Test Project
+  uses: threeal/ctest-action@v1.0.0
+  with:
+    tests-regex: ^test sample
 ```
 
 ## License
