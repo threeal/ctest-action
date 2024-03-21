@@ -37,8 +37,39 @@ jobs:
       - name: Test Project
         uses: ./ctest-action
 
+  test-action-with-test-dir:
+    name: Test Action With Test Directory Specified
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v4.1.2
+        with:
+          repository: threeal/cpp-starter
+
+      - name: Checkout Action
+        uses: actions/checkout@v4.1.2
+        with:
+          path: ctest-action
+          sparse-checkout: |
+            test
+            action.yaml
+          sparse-checkout-cone-mode: false
+
+      - name: Configure and Build Project
+        uses: threeal/cmake-action@v1.3.0
+        with:
+          build-dir: output
+          generator: Ninja
+          options: BUILD_TESTING=ON
+          run-build: true
+
+      - name: Test Project
+        uses: ./ctest-action
+        with:
+          test-dir: output
+
   test-action-with-build-config:
-    name: Test Action With Build Config
+    name: Test Action With Build Config Specified
     runs-on: windows-latest
     steps:
       - name: Checkout Project
