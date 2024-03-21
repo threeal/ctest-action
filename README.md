@@ -14,6 +14,7 @@ For more information, refer to [action.yml](./action.yml) and the [GitHub Action
 
 | Name | Value Type | Description |
 | --- | --- | --- |
+| `test-dir` | path | Specifies the directory in which to look for tests. It defaults to the `build` directory. |
 | `build-config` | string | Choose the configuration to test. |
 | `args` | Multiple strings | Additional arguments to pass during the CTest run. |
 
