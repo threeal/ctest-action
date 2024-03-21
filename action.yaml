@@ -19,4 +19,4 @@ runs:
   steps:
     - name: Test the CMake project
       shell: ${{ runner.os == 'Windows' && 'pwsh' || 'bash' }}
-      run: ctest --test-dir ${{ inputs.test-dir }} --output-on-failure --no-tests=error ${{ inputs.build-config && '-C' }} ${{ inputs.build-config }} ${{ inputs.tests-regex && '--tests-regex' }} '${{ inputs.tests-regex }}' ${{ inputs.args }}
+      run: ctest --test-dir ${{ inputs.test-dir }} ${{ inputs.build-config && '-C' }} ${{ inputs.build-config }} ${{ inputs.tests-regex && '--tests-regex' }} '${{ inputs.tests-regex }}' --output-on-failure --no-tests=error ${{ inputs.args }}
