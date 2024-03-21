@@ -13,7 +13,12 @@ jobs:
       matrix:
         os: [windows, ubuntu, macos]
     steps:
-      - name: Checkout
+      - name: Checkout Project
+        uses: actions/checkout@v4.1.2
+        with:
+          repository: threeal/cpp-starter
+
+      - name: Checkout Action
         uses: actions/checkout@v4.1.2
         with:
           path: ctest-action
@@ -22,14 +27,12 @@ jobs:
             action.yaml
           sparse-checkout-cone-mode: false
 
-      - name: Prepare Sample Project
-        run: mv ctest-action/test/* .
-
       - name: Configure and Build Project
         uses: threeal/cmake-action@v1.3.0
         with:
-          run-build: true
           generator: Ninja
+          options: BUILD_TESTING=ON
+          run-build: true
 
       - name: Test Project
         uses: ./ctest-action
@@ -38,7 +41,12 @@ jobs:
     name: Test Action With Build Config
     runs-on: windows-latest
     steps:
-      - name: Checkout
+      - name: Checkout Project
+        uses: actions/checkout@v4.1.2
+        with:
+          repository: threeal/cpp-starter
+
+      - name: Checkout Action
         uses: actions/checkout@v4.1.2
         with:
           path: ctest-action
@@ -47,12 +55,10 @@ jobs:
             action.yaml
           sparse-checkout-cone-mode: false
 
-      - name: Prepare Sample Project
-        run: mv ctest-action/test/* .
-
       - name: Configure and Build Project
         uses: threeal/cmake-action@v1.3.0
         with:
+          options: BUILD_TESTING=ON
           run-build: true
 
       - name: Test Project
