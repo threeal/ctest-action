@@ -16,6 +16,7 @@ For more information, refer to [action.yml](./action.yml) and the [GitHub Action
 | --- | --- | --- |
 | `test-dir` | path | Specifies the directory in which to look for tests. It defaults to the `build` directory. |
 | `build-config` | string | Choose the configuration to test. |
+| `tests-regex` | Regex pattern | Run tests matching regular expression. |
 | `args` | Multiple strings | Additional arguments to pass during the CTest run. |
 
 > **Note**: Multiple strings mean that the input can be specified with more than one value. Separate each value with a space or a new line.
