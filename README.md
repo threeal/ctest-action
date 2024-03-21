@@ -9,16 +9,12 @@ By default, this action invokes `ctest` with the `--output-on-failure` and `--no
 
 ## Available Inputs
 
-| Name | Value Type | Description |
+| Name | Type | Description |
 | --- | --- | --- |
-| `test-dir` | path | Specifies the directory in which to look for tests. It defaults to the `build` directory. |
-| `build-config` | string | Choose the configuration to test. |
-| `tests-regex` | Regex pattern | Run tests matching regular expression. |
+| `test-dir` | Path | Specifies the directory in which to look for tests. It defaults to the `build` directory. |
+| `build-config` | String | Chooses the configuration to test. |
+| `tests-regex` | Regex pattern | Runs tests matching the regular expression. |
 | `args` | Multiple strings | Additional arguments to pass during the CTest run. |
-
-> **Note**: Multiple strings mean that the input can be specified with more than one value. Separate each value with a space or a new line.
-
-> **Note**: All inputs are optional.
 
 ## Example Usages
 
