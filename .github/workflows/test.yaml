@@ -17,6 +17,7 @@ jobs:
         uses: actions/checkout@v4.1.6
         with:
           repository: threeal/cpp-starter
+          ref: v1.0.0
 
       - name: Checkout Action
         uses: actions/checkout@v4.1.6
@@ -45,6 +46,7 @@ jobs:
         uses: actions/checkout@v4.1.6
         with:
           repository: threeal/cpp-starter
+          ref: v1.0.0
 
       - name: Checkout Action
         uses: actions/checkout@v4.1.6
@@ -75,6 +77,7 @@ jobs:
         uses: actions/checkout@v4.1.6
         with:
           repository: threeal/cpp-starter
+          ref: v1.0.0
 
       - name: Checkout Action
         uses: actions/checkout@v4.1.6
@@ -104,6 +107,7 @@ jobs:
         uses: actions/checkout@v4.1.6
         with:
           repository: threeal/cpp-starter
+          ref: v1.0.0
 
       - name: Modify Project
         run: echo 'TEST_CASE("failing test") { CHECK(false); }' >> test/sequence_test.cpp
