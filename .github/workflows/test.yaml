@@ -38,6 +38,11 @@ jobs:
       - name: Test Project
         uses: ./ctest-action
 
+      - name: Test Project Verbosely
+        uses: ./ctest-action
+        with:
+          verbose: true
+
   test-action-with-test-dir:
     name: Test Action With Test Directory Specified
     runs-on: ubuntu-latest

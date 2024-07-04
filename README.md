@@ -14,6 +14,7 @@ By default, this action invokes `ctest` with the `--output-on-failure` and `--no
 | `test-dir` | Path | Specifies the directory in which to look for tests. It defaults to the `build` directory. |
 | `build-config` | String | Chooses the configuration to test. |
 | `tests-regex` | Regex pattern | Runs tests matching the regular expression. |
+| `verbose` | Enable verbose output from tests. |
 | `args` | Multiple strings | Additional arguments to pass during the CTest run. |
 
 ## Example Usages
@@ -38,7 +39,7 @@ jobs:
           run-build: true
 
       - name: Test Project
-        uses: threeal/ctest-action@v1.0.0
+        uses: threeal/ctest-action@v1.1.0
 ```
 
 ### Testing in a Different Directory
@@ -47,7 +48,7 @@ By default, this action runs tests in the `build` directory. To run tests in a d
 
 ```yaml
 - name: Test Project
-  uses: threeal/ctest-action@v1.0.0
+  uses: threeal/ctest-action@v1.1.0
   with:
     test-dir: sample/build
 ```
@@ -58,7 +59,7 @@ Some projects may require a build configuration to be specified to run tests. To
 
 ```yaml
 - name: Test Project
-  uses: threeal/ctest-action@v1.0.0
+  uses: threeal/ctest-action@v1.1.0
   with:
     build-config: Debug
 ```
@@ -69,7 +70,7 @@ A regular expression pattern can be provided by specifying the `tests-regex` inp
 
 ```yaml
 - name: Test Project
-  uses: threeal/ctest-action@v1.0.0
+  uses: threeal/ctest-action@v1.1.0
   with:
     tests-regex: ^test sample
 ```
