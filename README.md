@@ -39,7 +39,7 @@ jobs:
           run-build: true
 
       - name: Test Project
-        uses: threeal/ctest-action@v1.0.0
+        uses: threeal/ctest-action@v1.1.0
 ```
 
 ### Testing in a Different Directory
@@ -48,7 +48,7 @@ By default, this action runs tests in the `build` directory. To run tests in a d
 
 ```yaml
 - name: Test Project
-  uses: threeal/ctest-action@v1.0.0
+  uses: threeal/ctest-action@v1.1.0
   with:
     test-dir: sample/build
 ```
@@ -59,7 +59,7 @@ Some projects may require a build configuration to be specified to run tests. To
 
 ```yaml
 - name: Test Project
-  uses: threeal/ctest-action@v1.0.0
+  uses: threeal/ctest-action@v1.1.0
   with:
     build-config: Debug
 ```
@@ -70,7 +70,7 @@ A regular expression pattern can be provided by specifying the `tests-regex` inp
 
 ```yaml
 - name: Test Project
-  uses: threeal/ctest-action@v1.0.0
+  uses: threeal/ctest-action@v1.1.0
   with:
     tests-regex: ^test sample
 ```
