@@ -28,12 +28,14 @@ jobs:
             action.yml
           sparse-checkout-cone-mode: false
 
+      - name: Setup Ninja
+        uses: seanmiddleditch/gha-setup-ninja@v5
+
       - name: Configure and Build Project
-        uses: threeal/cmake-action@v1.3.0
+        uses: threeal/cmake-action@v2.0.0
         with:
           generator: Ninja
           options: BUILD_TESTING=ON
-          run-build: true
 
       - name: Test Project
         uses: ./ctest-action
@@ -63,11 +65,10 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Configure and Build Project
-        uses: threeal/cmake-action@v1.3.0
+        uses: threeal/cmake-action@v2.0.0
         with:
           build-dir: output
           options: BUILD_TESTING=ON
-          run-build: true
 
       - name: Test Project
         uses: ./ctest-action
@@ -94,10 +95,9 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Configure and Build Project
-        uses: threeal/cmake-action@v1.3.0
+        uses: threeal/cmake-action@v2.0.0
         with:
           options: BUILD_TESTING=ON
-          run-build: true
 
       - name: Test Project
         uses: ./ctest-action
@@ -127,10 +127,9 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Configure and Build Project
-        uses: threeal/cmake-action@v1.3.0
+        uses: threeal/cmake-action@v2.0.0
         with:
           options: BUILD_TESTING=ON
-          run-build: true
 
       - name: Test Project
         uses: ./ctest-action
