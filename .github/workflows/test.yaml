@@ -7,11 +7,11 @@ on:
 jobs:
   test-action:
     name: Test Action
-    runs-on: ${{ matrix.os }}-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        os: [windows, ubuntu, macos]
+        os: [ubuntu-20.04, macos-14, windows-2022]
     steps:
       - name: Checkout Project
         uses: actions/checkout@v4.1.7
@@ -47,7 +47,7 @@ jobs:
 
   test-action-with-test-dir:
     name: Test Action With Test Directory Specified
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout Project
         uses: actions/checkout@v4.1.7
@@ -77,7 +77,7 @@ jobs:
 
   test-action-with-build-config:
     name: Test Action With Build Config Specified
-    runs-on: windows-latest
+    runs-on: windows-2022
     steps:
       - name: Checkout Project
         uses: actions/checkout@v4.1.7
@@ -106,7 +106,7 @@ jobs:
 
   test-action-with-test-regex:
     name: Test Action With Test Regex Specified
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout Project
         uses: actions/checkout@v4.1.7
