@@ -14,13 +14,13 @@ jobs:
         os: [ubuntu-20.04, macos-14, windows-2022]
     steps:
       - name: Checkout Project
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v4.2.0
         with:
           repository: threeal/cpp-starter
           ref: v1.0.0
 
       - name: Checkout Action
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v4.2.0
         with:
           path: ctest-action
           sparse-checkout: |
@@ -50,13 +50,13 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout Project
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v4.2.0
         with:
           repository: threeal/cpp-starter
           ref: v1.0.0
 
       - name: Checkout Action
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v4.2.0
         with:
           path: ctest-action
           sparse-checkout: |
@@ -80,13 +80,13 @@ jobs:
     runs-on: windows-2022
     steps:
       - name: Checkout Project
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v4.2.0
         with:
           repository: threeal/cpp-starter
           ref: v1.0.0
 
       - name: Checkout Action
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v4.2.0
         with:
           path: ctest-action
           sparse-checkout: |
@@ -109,7 +109,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout Project
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v4.2.0
         with:
           repository: threeal/cpp-starter
           ref: v1.0.0
@@ -118,7 +118,7 @@ jobs:
         run: echo 'TEST_CASE("failing test") { CHECK(false); }' >> test/sequence_test.cpp
 
       - name: Checkout Action
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v4.2.0
         with:
           path: ctest-action
           sparse-checkout: |
