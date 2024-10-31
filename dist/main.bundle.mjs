@@ -1,18 +1,8 @@
-import fsPromises from 'node:fs/promises';
+import { spawn } from 'node:child_process';
 import 'node:fs';
+import 'node:fs/promises';
 import os from 'node:os';
 import 'node:path';
-
-/**
- * Retrieves the value of a GitHub Actions input.
- *
- * @param name - The name of the GitHub Actions input.
- * @returns The value of the GitHub Actions input, or an empty string if not found.
- */
-function getInput(name) {
-    const value = process.env[`INPUT_${name.toUpperCase()}`] ?? "";
-    return value.trim();
-}
 
 /**
  * Logs an error message in GitHub Actions.
@@ -25,8 +15,18 @@ function logError(err) {
 }
 
 try {
-    const path = getInput("path");
-    await fsPromises.mkdir(path, { recursive: true });
+    const ctest = spawn("ctest", ["--test-dir", "build"], { stdio: "inherit" });
+    await new Promise((resolve, reject) => {
+        ctest.on("error", reject);
+        ctest.on("close", (code) => {
+            if (code === 0) {
+                resolve();
+            }
+            else {
+                reject(new Error(`Process failed with exit code ${code}`));
+            }
+        });
+    });
 }
 catch (err) {
     logError(err);

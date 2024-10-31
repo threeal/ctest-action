@@ -7,22 +7,19 @@ beforeAll(() => {
 });
 
 beforeEach(async () => {
-  await fsPromises.rm("path", { recursive: true, force: true });
+  await fsPromises.rm("build", { recursive: true, force: true });
   jest.resetModules();
 });
 
-it("should create a directory recursively", async () => {
-  process.env.INPUT_PATH = "path/to/new/directory";
+it("should test successfully", async () => {
+  await fsPromises.mkdir("build");
+
   await import("./main.js");
 
-  await fsPromises.access("path/to/new/directory");
   expect(process.exitCode).toBeUndefined();
 });
 
-it("should fail to create a directory because a file already exists", async () => {
-  await fsPromises.writeFile("path", "a data");
-
-  process.env.INPUT_PATH = "path/to/new/directory";
+it("should fail to test because the directory does not exist", async () => {
   await import("./main.js");
 
   expect(process.exitCode).toBe(1);
@@ -30,5 +27,5 @@ it("should fail to create a directory because a file already exists", async () =
 });
 
 afterAll(async () => {
-  await fsPromises.rm("path", { recursive: true, force: true });
+  await fsPromises.rm("build", { recursive: true, force: true });
 });

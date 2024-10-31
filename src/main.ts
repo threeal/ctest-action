@@ -1,9 +1,18 @@
-import fsPromises from "node:fs/promises";
-import { getInput, logError } from "gha-utils";
+import { spawn } from "node:child_process";
+import { logError } from "gha-utils";
 
 try {
-  const path = getInput("path");
-  await fsPromises.mkdir(path, { recursive: true });
+  const ctest = spawn("ctest", ["--test-dir", "build"], { stdio: "inherit" });
+  await new Promise<void>((resolve, reject) => {
+    ctest.on("error", reject);
+    ctest.on("close", (code) => {
+      if (code === 0) {
+        resolve();
+      } else {
+        reject(new Error(`Process failed with exit code ${code}`));
+      }
+    });
+  });
 } catch (err) {
   logError(err);
   process.exitCode = 1;
