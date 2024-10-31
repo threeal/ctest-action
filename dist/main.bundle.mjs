@@ -5,6 +5,17 @@ import 'node:path';
 import { spawn } from 'node:child_process';
 
 /**
+ * Retrieves the value of a GitHub Actions input.
+ *
+ * @param name - The name of the GitHub Actions input.
+ * @returns The value of the GitHub Actions input, or an empty string if not found.
+ */
+function getInput(name) {
+    const value = process.env[`INPUT_${name.toUpperCase()}`] ?? "";
+    return value.trim();
+}
+
+/**
  * Logs an error message in GitHub Actions.
  *
  * @param err - The error, which can be of any type.
@@ -29,8 +40,24 @@ async function executeProcess(command, ...args) {
     });
 }
 
+function getCtestArguments() {
+    const args = ["--test-dir", getInput("test-dir")];
+    const buildConfig = getInput("build-config");
+    if (buildConfig !== "")
+        args.push("--build-config", buildConfig);
+    const testsRegex = getInput("tests-regex");
+    if (testsRegex !== "")
+        args.push("--tests-regex", testsRegex);
+    if (getInput("verbose") === "true")
+        args.push("--verbose");
+    args.push("--output-on-failure", "--no-tests=error", ...getInput("args")
+        .split(/\s+/)
+        .filter((arg) => arg !== ""));
+    return args;
+}
+
 try {
-    await executeProcess("ctest", "--test-dir", "build");
+    await executeProcess("ctest", ...getCtestArguments());
 }
 catch (err) {
     logError(err);
