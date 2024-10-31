@@ -17,8 +17,5 @@ inputs:
   args:
     description: Additional arguments to pass during the CTest run
 runs:
-  using: composite
-  steps:
-    - name: Test the CMake project
-      shell: ${{ runner.os == 'Windows' && 'pwsh' || 'bash' }}
-      run: ctest --test-dir '${{ inputs.test-dir }}'${{ inputs.build-config && format(' --build-config ''{0}''', inputs.build-config) }}${{ inputs.tests-regex && format(' --tests-regex ''{0}''', inputs.tests-regex) }}${{ inputs.verbose && ' --verbose' }} --output-on-failure --no-tests=error ${{ inputs.args }}
+  using: node20
+  main: dist/main.bundle.mjs

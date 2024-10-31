@@ -9,13 +9,13 @@ By default, this action invokes `ctest` with the `--output-on-failure` and `--no
 
 ## Available Inputs
 
-| Name | Type | Description |
-| --- | --- | --- |
-| `test-dir` | Path | Specifies the directory in which to look for tests. It defaults to the `build` directory. |
-| `build-config` | String | Chooses the configuration to test. |
-| `tests-regex` | Regex pattern | Runs tests matching the regular expression. |
-| `verbose` | `true` or `false` | Enable verbose output from tests. |
-| `args` | Multiple strings | Additional arguments to pass during the CTest run. |
+| Name           | Type              | Description                                                                               |
+| -------------- | ----------------- | ----------------------------------------------------------------------------------------- |
+| `test-dir`     | Path              | Specifies the directory in which to look for tests. It defaults to the `build` directory. |
+| `build-config` | String            | Chooses the configuration to test.                                                        |
+| `tests-regex`  | Regex pattern     | Runs tests matching the regular expression.                                               |
+| `verbose`      | `true` or `false` | Enable verbose output from tests.                                                         |
+| `args`         | Multiple strings  | Additional arguments to pass during the CTest run.                                        |
 
 ## Example Usages
 
