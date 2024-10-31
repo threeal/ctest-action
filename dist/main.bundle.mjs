@@ -1,8 +1,8 @@
-import { spawn } from 'node:child_process';
 import 'node:fs';
 import 'node:fs/promises';
 import os from 'node:os';
 import 'node:path';
+import { spawn } from 'node:child_process';
 
 /**
  * Logs an error message in GitHub Actions.
@@ -14,11 +14,11 @@ function logError(err) {
     process.stdout.write(`::error::${message}${os.EOL}`);
 }
 
-try {
-    const ctest = spawn("ctest", ["--test-dir", "build"], { stdio: "inherit" });
-    await new Promise((resolve, reject) => {
-        ctest.on("error", reject);
-        ctest.on("close", (code) => {
+async function executeProcess(command, ...args) {
+    const proc = spawn(command, args, { stdio: "inherit" });
+    return new Promise((resolve, reject) => {
+        proc.on("error", reject);
+        proc.on("close", (code) => {
             if (code === 0) {
                 resolve();
             }
@@ -27,6 +27,10 @@ try {
             }
         });
     });
+}
+
+try {
+    await executeProcess("ctest", "--test-dir", "build");
 }
 catch (err) {
     logError(err);

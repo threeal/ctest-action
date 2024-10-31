@@ -1,31 +1,29 @@
 import { jest } from "@jest/globals";
-import fsPromises from "node:fs/promises";
-import os from "node:os";
 
-beforeAll(() => {
-  process.chdir(os.tmpdir());
-});
+const executeProcess =
+  jest.fn<(command: string, ...args: string[]) => Promise<void>>();
+jest.unstable_mockModule("./exec.js", () => ({ executeProcess }));
 
 beforeEach(async () => {
-  await fsPromises.rm("build", { recursive: true, force: true });
   jest.resetModules();
 });
 
-it("should test successfully", async () => {
-  await fsPromises.mkdir("build");
+it("should run successfully", async () => {
+  executeProcess.mockResolvedValue(undefined);
 
+  process.env["INPUT_TEST-DIR"] = "build";
   await import("./main.js");
 
+  expect(executeProcess).toHaveBeenCalledWith("ctest", "--test-dir", "build");
   expect(process.exitCode).toBeUndefined();
 });
 
-it("should fail to test because the directory does not exist", async () => {
+it("should fail to run", async () => {
+  executeProcess.mockRejectedValue(new Error("unknown error"));
+
+  process.env["INPUT_TEST-DIR"] = "build";
   await import("./main.js");
 
   expect(process.exitCode).toBe(1);
   process.exitCode = undefined;
-});
-
-afterAll(async () => {
-  await fsPromises.rm("build", { recursive: true, force: true });
 });
