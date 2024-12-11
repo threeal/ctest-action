@@ -33,10 +33,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.2.2
 
-      - name: Configure and Build Project
-        uses: threeal/cmake-action@v1.3.0
-        with:
-          run-build: true
+      - name: Build Project
+        uses: threeal/cmake-action@v2.1.0
 
       - name: Test Project
         uses: threeal/ctest-action@v1.1.0
