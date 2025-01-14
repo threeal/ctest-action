@@ -1,3 +1,4 @@
+import { expect, it } from "vitest";
 import { executeProcess } from "./exec.js";
 
 it("should execute a process", async () => {
