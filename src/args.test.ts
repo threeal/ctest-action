@@ -1,6 +1,7 @@
+import { expect, it } from "vitest";
 import { getCtestArguments } from "./args.js";
 
-it("should retrieve default arguments", async () => {
+it("should retrieve default arguments", () => {
   process.env["INPUT_TEST-DIR"] = "build";
   expect(getCtestArguments()).toEqual([
     "--test-dir",
@@ -10,7 +11,7 @@ it("should retrieve default arguments", async () => {
   ]);
 });
 
-it("should retrieve fully specified arguments", async () => {
+it("should retrieve fully specified arguments", () => {
   process.env["INPUT_TEST-DIR"] = "output";
   process.env["INPUT_BUILD-CONFIG"] = "Debug";
   process.env["INPUT_TESTS-REGEX"] = ".*";

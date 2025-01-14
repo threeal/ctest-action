@@ -1,19 +1,17 @@
-import { jest } from "@jest/globals";
+import { beforeEach, expect, it, vi } from "vitest";
+import { getCtestArguments } from "./args.js";
+import { executeProcess } from "./exec.js";
 
-const executeProcess =
-  jest.fn<(command: string, ...args: string[]) => Promise<void>>();
-jest.unstable_mockModule("./exec.js", () => ({ executeProcess }));
+vi.mock("./exec.js", () => ({ executeProcess: vi.fn() }));
+vi.mock("./args.js", () => ({ getCtestArguments: vi.fn() }));
 
-const getCtestArguments = jest.fn<() => string[]>();
-jest.unstable_mockModule("./args.js", () => ({ getCtestArguments }));
-
-beforeEach(async () => {
-  jest.resetModules();
+beforeEach(() => {
+  vi.resetModules();
 });
 
 it("should run successfully", async () => {
-  getCtestArguments.mockReturnValue(["args"]);
-  executeProcess.mockResolvedValue(undefined);
+  vi.mocked(getCtestArguments).mockReturnValue(["args"]);
+  vi.mocked(executeProcess).mockResolvedValue(undefined);
 
   process.env["INPUT_TEST-DIR"] = "build";
   await import("./main.js");
@@ -23,7 +21,7 @@ it("should run successfully", async () => {
 });
 
 it("should fail to run", async () => {
-  executeProcess.mockRejectedValue(new Error("unknown error"));
+  vi.mocked(executeProcess).mockRejectedValue(new Error("unknown error"));
 
   process.env["INPUT_TEST-DIR"] = "build";
   await import("./main.js");
