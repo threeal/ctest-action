@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "rollup -c",
-    "format": "prettier --write --cache . !dist",
+    "format": "prettier --write --cache .",
     "lint": "eslint",
     "test": "vitest"
   },
@@ -25,5 +25,9 @@
     "typescript-eslint": "^8.26.1",
     "vitest": "^3.0.8"
   },
-  "packageManager": "yarn@4.6.0"
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
 }
