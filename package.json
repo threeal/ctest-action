@@ -6,7 +6,7 @@
     "build": "rollup -c",
     "format": "prettier --write --cache .",
     "lint": "eslint",
-    "test": "vitest"
+    "test": "vitest run"
   },
   "dependencies": {
     "gha-utils": "^0.4.1"
