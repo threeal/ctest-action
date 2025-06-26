@@ -44,8 +44,8 @@ async function executeProcess(command, ...args) {
             if (code === 0) {
                 resolve();
             }
-            else {
-                reject(new Error(`Process failed with exit code ${code}`));
+            else if (code !== null) {
+                reject(new Error(`Process failed with exit code ${code.toString()}`));
             }
         });
     });

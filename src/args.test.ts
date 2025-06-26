@@ -15,8 +15,8 @@ it("should retrieve fully specified arguments", () => {
   process.env["INPUT_TEST-DIR"] = "output";
   process.env["INPUT_BUILD-CONFIG"] = "Debug";
   process.env["INPUT_TESTS-REGEX"] = ".*";
-  process.env["INPUT_VERBOSE"] = "true";
-  process.env["INPUT_ARGS"] = "first\nsecond third";
+  process.env.INPUT_VERBOSE = "true";
+  process.env.INPUT_ARGS = "first\nsecond third";
   expect(getCtestArguments()).toEqual([
     "--test-dir",
     "output",
