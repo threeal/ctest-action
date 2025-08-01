@@ -1,6 +1,6 @@
 import { logError } from "gha-utils";
-import { executeProcess } from "./exec.js";
 import { getCtestArguments } from "./args.js";
+import { executeProcess } from "./exec.js";
 
 try {
   await executeProcess("ctest", ...getCtestArguments());
