@@ -17,5 +17,5 @@ inputs:
   args:
     description: Additional arguments to pass during the CTest run
 runs:
-  using: node20
+  using: node24
   main: dist/main.bundle.mjs
