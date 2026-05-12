@@ -14,13 +14,13 @@ jobs:
         os: [ubuntu-24.04, macos-14, windows-2022]
     steps:
       - name: Checkout Project
-        uses: actions/checkout@v5.0.0
+        uses: actions/checkout@v6.0.2
         with:
           repository: threeal/cpp-starter
           ref: v2.0.0
 
       - name: Checkout Action
-        uses: actions/checkout@v5.0.0
+        uses: actions/checkout@v6.0.2
         with:
           path: ctest-action
           sparse-checkout: |
