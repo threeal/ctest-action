@@ -40,11 +40,11 @@ importers:
         specifier: ^2.1.8
         version: 2.1.8
       prettier:
-        specifier: ^3.8.1
-        version: 3.8.1
+        specifier: ^3.8.4
+        version: 3.8.4
       prettier-plugin-organize-imports:
         specifier: ^4.3.0
-        version: 4.3.0(prettier@3.8.1)(typescript@5.9.2)
+        version: 4.3.0(prettier@3.8.4)(typescript@5.9.2)
       rollup:
         specifier: ^4.59.0
         version: 4.59.0
@@ -1100,8 +1100,8 @@ packages:
       vue-tsc:
         optional: true
 
-  prettier@3.8.1:
-    resolution: {integrity: sha512-UOnG6LftzbdaHZcKoPFtOcCKztrQ57WkHDeRD9t/PTQtmT0NHSeWWepj6pS0z/N7+08BHFDQVUrfmfMRcZwbMg==}
+  prettier@3.8.4:
+    resolution: {integrity: sha512-N2MylSdi48+5N/6S5j+maeHbUSIzzZ5uOcX5Hm4QpV8Dkb1HFjfAKTKX6yNPJQD9AhcT3ifHNB66tWTTJDi11Q==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -2239,12 +2239,12 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-organize-imports@4.3.0(prettier@3.8.1)(typescript@5.9.2):
+  prettier-plugin-organize-imports@4.3.0(prettier@3.8.4)(typescript@5.9.2):
     dependencies:
-      prettier: 3.8.1
+      prettier: 3.8.4
       typescript: 5.9.2
 
-  prettier@3.8.1: {}
+  prettier@3.8.4: {}
 
   punycode@2.3.1: {}
 
