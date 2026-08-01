@@ -43,11 +43,11 @@ importers:
         specifier: runtime:^24.16.0
         version: runtime:24.16.0
       prettier:
-        specifier: ^3.9.4
-        version: 3.9.4
+        specifier: ^3.9.6
+        version: 3.9.6
       prettier-plugin-organize-imports:
         specifier: ^4.3.0
-        version: 4.3.0(prettier@3.9.4)(typescript@5.9.2)
+        version: 4.3.0(prettier@3.9.6)(typescript@5.9.2)
       rollup:
         specifier: ^4.62.3
         version: 4.62.3
@@ -1251,8 +1251,8 @@ packages:
       vue-tsc:
         optional: true
 
-  prettier@3.9.4:
-    resolution: {integrity: sha512-yWG/o/4oJfo036EKAfK6ACAoDOfHeRHx4tuxkfBZiauURiaSmYwlpOr5LQqKtIkRD2z1PLteme2WoxEnj4tHTg==}
+  prettier@3.9.6:
+    resolution: {integrity: sha512-OpN0zzVdiaiAhxpuuj5efpIS4sY9j7bY6uR5mnj5yPzGkdkjNKSJeUThPb60Jw29QuAZgA4o+/iB49kFiaBX6g==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -2421,12 +2421,12 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-organize-imports@4.3.0(prettier@3.9.4)(typescript@5.9.2):
+  prettier-plugin-organize-imports@4.3.0(prettier@3.9.6)(typescript@5.9.2):
     dependencies:
-      prettier: 3.9.4
+      prettier: 3.9.6
       typescript: 5.9.2
 
-  prettier@3.9.4: {}
+  prettier@3.9.6: {}
 
   punycode@2.3.1: {}
 
