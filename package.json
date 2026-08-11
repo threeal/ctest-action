@@ -22,7 +22,7 @@
     "prettier-plugin-organize-imports": "^4.3.0",
     "rollup": "^4.62.4",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.66.0",
+    "typescript-eslint": "^8.67.0",
     "vitest": "^3.2.6"
   },
   "devEngines": {
