@@ -20,7 +20,7 @@
     "lefthook": "^2.1.12",
     "prettier": "^3.9.6",
     "prettier-plugin-organize-imports": "^4.3.0",
-    "rollup": "^4.63.0",
+    "rollup": "^4.63.1",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.69.0",
     "vitest": "^3.2.6"
